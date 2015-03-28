@@ -31,7 +31,9 @@ func main() {
 	// fmt.Println(res)
 	// fmt.Println(string(body))
 	if data == nil {
-		fmt.Println(f)
+		//fmt.Println(f)
 	}
+	m := f.(map[string]interface{})
+	fmt.Println(m["startedDateTime"])
 
 }
