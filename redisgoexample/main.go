@@ -2,7 +2,6 @@ package main
 
 import (
 	"fmt"
-	"strconv"
 
 	"github.com/garyburd/redigo/redis"
 )
@@ -18,13 +17,13 @@ func main() {
 	//set
 	r.Do("SET", "message1", "Hello World")
 
-	for i := 0; i < 100000; i++ {
-		messNum := strconv.Itoa(i)
-		r.Do("SET", "message"+messNum, i)
+	for i := 0; i < 100; i++ {
+		//messNum := strconv.Itoa(i)
+		r.Do("INCR", "foo")
 	}
 
 	//get
-	world, err := redis.String(r.Do("GET", "message1"))
+	world, err := redis.String(r.Do("GET", "foo"))
 	if err != nil {
 		fmt.Println("key not found")
 	}
