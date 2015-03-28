@@ -33,6 +33,5 @@ func main() {
 	if data == nil {
 		fmt.Println(f)
 	}
-	fmt.Println(f["startedDateTime"])
 
 }
